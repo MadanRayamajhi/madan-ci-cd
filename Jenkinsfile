@@ -3,15 +3,17 @@ pipeline {
 
     stages {
 
-        stage('Install Dependencies') {
+        stage('Build Docker Image') {
             steps {
-                sh 'npm install'
+                sh 'docker build -t madan-ci-cd .'
             }
         }
 
-        stage('Run App') {
+        stage('Run Container') {
             steps {
-                sh 'node index.js'
+                sh 'docker stop madan || true'
+                sh 'docker rm madan || true'
+                sh 'docker run -d -p 3000:3000 --name madan madan-ci-cd'
             }
         }
     }
