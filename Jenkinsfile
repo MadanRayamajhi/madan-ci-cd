@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/MadanRayamajhi/madan-ci-cd.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
