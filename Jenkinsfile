@@ -3,17 +3,25 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MadanRayamajhi/madan-ci-cd.git'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t madan-ci-cd .'
             }
         }
 
-        stage('Run Container') {
+        stage('Deploy') {
             steps {
-                sh 'docker stop madan || true'
-                sh 'docker rm madan || true'
-                sh 'docker run -d -p 3000:3000 --name madan madan-ci-cd'
+                sh '''
+                docker stop madan || true
+                docker rm madan || true
+                docker run -d -p 3000:3000 --name madan madan-ci-cd
+                '''
             }
         }
     }
