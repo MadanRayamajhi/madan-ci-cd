@@ -57,7 +57,7 @@ The `Jenkinsfile` does three things:
 
 `GET /` returns:
 
-> 🔥 CLEAN CI/CD PIPELINE - madan 🚀
+> CI/CD Pipeline Success | GitHub → Jenkins → Docker → AWS EC2 Deployment Complete - madan
 
 ## Requirements
 

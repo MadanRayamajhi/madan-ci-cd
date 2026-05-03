@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send(" CLEAN CI/CD PIPELINE - madan ");
+ res.send("CI/CD Pipeline Success | GitHub → Jenkins → Docker → AWS EC2 Deployment Complete - madan");
 });
 
 app.listen(3000, () => {
